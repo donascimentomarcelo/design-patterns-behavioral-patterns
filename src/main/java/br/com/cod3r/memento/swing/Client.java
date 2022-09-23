@@ -1,5 +1,6 @@
 package br.com.cod3r.memento.swing;
 
+import br.com.cod3r.memento.swing.memory.Caretaker;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -40,8 +41,39 @@ public class Client {
 		bottomPanel.add(save);
 		
 		frame.add(bottomPanel, BorderLayout.SOUTH);
-		
-		
+
+		final Caretaker caretaker = new Caretaker();
+
+		save.addActionListener(e -> {
+			caretaker.add(originator.save());
+			mementosList.addItem(caretaker.getHistoryList().size() + "");
+			mementosList.setSelectedItem(caretaker.getHistoryList().size() + "");
+			originator.requestFocusInWindow();
+		});
+
+		mementosList.addItemListener(e -> {
+			originator.restore((TextAreaWithMemory.TextAreaMemento) caretaker.get(mementosList.getSelectedIndex()));
+			originator.requestFocusInWindow();
+		});
+
+		next.addActionListener(e -> {
+			if (mementosList.getSelectedIndex() < mementosList.getItemCount() - 1) {
+				int nextItem = mementosList.getSelectedIndex() + 1;
+				originator.restore((TextAreaWithMemory.TextAreaMemento) caretaker.get(nextItem));
+				mementosList.setSelectedIndex(nextItem);
+				originator.requestFocusInWindow();
+			}
+		});
+
+		previous.addActionListener(e -> {
+			if (mementosList.getSelectedIndex() > 0) {
+				int previousItem = mementosList.getSelectedIndex() - 1;
+				originator.restore((TextAreaWithMemory.TextAreaMemento) caretaker.get(previousItem));
+				mementosList.setSelectedIndex(previousItem);
+				originator.requestFocusInWindow();
+			}
+		});
+
 		frame.setSize(400,200);  
 		frame.setVisible(true);
 	}
