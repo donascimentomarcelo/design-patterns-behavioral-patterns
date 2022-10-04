@@ -1,16 +1,16 @@
 package br.com.cod3r.state.pacman;
 
-import br.com.cod3r.state.pacman.states.GhostStates;
+import br.com.cod3r.state.pacman.states.GhostState;
 import br.com.cod3r.state.pacman.states.WanderMazeState;
 
 public class Ghost {
-	private GhostStates state = WanderMazeState.getInstance();
+	private GhostState state = WanderMazeState.getInstance();
 
-	public GhostStates getState() {
+	public GhostState getState() {
 		return state;
 	}
 
-	public void setState(GhostStates state) {
+	public void setState(GhostState state) {
 		System.out.println(String.format("Changing from %s to %s", 
 				this.state.getClass().getSimpleName(), 
 				state.getClass().getSimpleName()));
