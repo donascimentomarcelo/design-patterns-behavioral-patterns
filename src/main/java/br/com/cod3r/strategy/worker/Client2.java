@@ -1,9 +1,5 @@
 package br.com.cod3r.strategy.worker;
 
-import br.com.cod3r.strategy.worker.jobs.Developer;
-import br.com.cod3r.strategy.worker.jobs.HispsterDeveloper;
-import br.com.cod3r.strategy.worker.jobs.Pilot;
-import br.com.cod3r.strategy.worker.jobs.Worker;
 import br.com.cod3r.strategy.worker.strategies.eat.KetogenicFoodStrategy;
 import br.com.cod3r.strategy.worker.strategies.eat.MeatFoodStrategy;
 import br.com.cod3r.strategy.worker.strategies.transportation.AirplaneStrategy;
