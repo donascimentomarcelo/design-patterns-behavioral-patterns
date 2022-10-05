@@ -13,5 +13,9 @@ public class Client {
 		System.out.println(calc.getResult(new SubtractionOperation()));
 		System.out.println(calc.getResult(new MultiplicationOperation()));
 		System.out.println(calc.getResult(new DivisionOperation()));
+
+		System.out.println(calc.getResult((n1, n2) -> {
+			return (int) Math.pow(n1, n2);
+		}));
 	}
 }
