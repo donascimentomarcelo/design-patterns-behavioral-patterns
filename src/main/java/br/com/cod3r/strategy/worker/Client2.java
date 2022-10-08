@@ -18,7 +18,7 @@ public class Client2 {
 	}
 	
 	public static void main(String[] args) {
-		Person john = new Person(new MeatFoodStrategy(), new BikeStrategy(), new DeveloperStrategy(), "Jhon");
+		Person john = new Person(new MeatFoodStrategy(), new BikeStrategy(), new DeveloperStrategy(), "John");
 		presentYourself(john);
 
 		Person ann = new Person(new KetogenicFoodStrategy(), new AirplaneStrategy(), new PilotStrategy(), "Ann");

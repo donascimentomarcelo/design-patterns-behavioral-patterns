@@ -16,8 +16,8 @@ public class Client {
 	}
 	
 	public static void main(String[] args) {
-		Worker jhon = new Developer();
-		presentYourself(jhon, "Jhon");
+		Worker john = new Developer();
+		presentYourself(john, "john");
 		
 		Worker ann = new Pilot();
 		presentYourself(ann, "Ann");
