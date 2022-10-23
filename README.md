@@ -33,6 +33,20 @@ e o segundo deve ter um parametro do tipo array de `Bill`
 #
 ### Command
 
+Encapsular uma requisição como um objeto, permitindo que clientes parametrizem diferentes requisições, filas
+ou requisições de log, e suportar operações reversíveis.
+
+* Possuir uma interface chamada `Command`, onde essa interface deve ser implementada pelas classes `TurnLightOffCommand` e
+`TurnLightOnCommand`
+* As classes `TurnLightOffCommand` e `TurnLightOnCommand` devem possuir uma propriedade do tipo `GenericLight` chamada
+de `light`, e um construtor que receba um objeto do tipo `GenericLight`. O valor recebido pelo construtor, será atribuido
+a propriedade `light`. 
+* `GenericLight` deve ser uma interface implementada pelas classes `PhillipsHueLight` e `XiaomiLight`.
+* Qnd for chamado o método `command.execute();`, a aplicação executará `this.light.turnOff();`, e com isso será verificado
+se o `this.light` é do tipo `PhillipsHueLight` ou `XiaomiLight`. 
+*De acordo com o tipo, a implementação desejara será executada.
+
+![Alt text](imgs/command.jpg "Command")
 #
 ### Iterator
 
