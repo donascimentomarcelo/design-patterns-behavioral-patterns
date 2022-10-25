@@ -50,6 +50,18 @@ se o `this.light` é do tipo `PhillipsHueLight` ou `XiaomiLight`.
 #
 ### Iterator
 
+Prover uma maneira de acessar os elementos de um objeto agregado seqüencialmente sem expor sua representação interna.
+
+* Possuir classe `TV` que implemente `java.util.Iterator`
+* A classe `TV` deve ter uma propriedade chamada `channels`, que deve receber todos os canais de forma aleatória
+* Sobrescrever método `iterator` na classe `TV`, retornando um `new ChannelIterator(channels)`
+* A classe `ChannelIterator` também deve implementar `java.util.Iterator`
+* Com isso, ao instanciar uma `TV`, é possível fazer a iteração em cima da própria `TV`
+    * `for (Integer channel: tv) { .... `
+* Em outras palavras, você não consegue acessar os objetos diretamente dentro do objeto `TV`, mas consegue percorrer os 
+elementos
+
+![Alt text](imgs/iterator.jpg "Iterator")
 #
 ### Memento
 
