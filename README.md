@@ -117,3 +117,13 @@ como parâmetro, a aplicação identificará qual implementação deve ser chama
 ![Alt text](imgs/strategy.jpg "Strategy")
 #
 ### Template
+
+Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos
+pelas subclasses. Template Method permite que suas subclasses redefinam certos passos de um algoritmo
+sem mudar sua estrutura.
+
+* Possuir classe abstrata chamada `ModelPersist` que servirá como template de métodos
+* Possuir uma classe concreta chamada `UserModel`, que deva estender de `ModelPersist`
+* Para usar esse template, basta instanciar `new UserModel("User", "password");` e chamar os métodos desejados
+
+![Alt text](imgs/template.jpg "Template")
