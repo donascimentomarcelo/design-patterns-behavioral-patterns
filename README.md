@@ -102,5 +102,18 @@ o atual estado de `HeadPhone`
 #
 ### Strategy
 
+Definir uma família de algoritmos, encapsular cada um, e fazê-los intercambiáveis. Strategy permite que algoritmos
+mudem independentemente entre clientes que os utilizam.
+
+* Possuir uma interface chamada `OperationStrategy` e tenha um método chamado `calculate`
+* Possuir classes `SubtractionOperation`, `MultiplicationOperation`, `DivisionOperation` e `AdditionOperation` e devem
+implementar `OperationStrategy`
+* Possuir classe `Calculator`, que deve possuir método `getResult`, e esse metodo recebe como parâmetro `OperationStrategy`
+* O método `getResult`, deve chamar o método `calculate`
+* A classe `Calculator` também deve receber 2 parâmetros.
+* Ao instanciar `Calculator`, e chamar o `getResult` passsando uma classe concreta `calc.getResult(new AdditionOperation())`
+como parâmetro, a aplicação identificará qual implementação deve ser chamada. 
+
+![Alt text](imgs/strategy.jpg "Strategy")
 #
 ### Template
