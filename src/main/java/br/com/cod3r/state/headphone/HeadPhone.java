@@ -1,35 +1,53 @@
 package br.com.cod3r.state.headphone;
 
+import br.com.cod3r.state.headphone.states.HPState;
+import br.com.cod3r.state.headphone.states.OffState;
+
 public class HeadPhone {
+	private HPState state;
 	private boolean isOn;
 	private boolean isPlaying;
 	
 	public HeadPhone() {
 		this.isOn = false;
 		this.isPlaying = false;
+		state = OffState.getInstance();
 	}
 	
 	public void onLongClick() {
 		System.out.println("Long Click Pressed...");
-		if(isOn) {
-			System.out.println("> Turning Off");
-			isOn = false;
-		} else {
-			System.out.println("> Turning On");
-			isOn = true;
-		}
+		state.longClick(this);
 	}
 	
 	public void onClick() {
 		System.out.println("Click Pressed...");
-		if(isOn) {
-			if(isPlaying) {
-				System.out.println("> Stop Player");
-				isPlaying = false;
-			} else {
-				System.out.println("> Resume Player");
-				isPlaying = true;
-			}
-		}
+		state.click(this);
+	}
+
+	public HPState getState() {
+		return state;
+	}
+
+	public void setState(HPState state) {
+		System.out.println(String.format("Changing from %s to %s", 
+				this.state.getClass().getSimpleName(), 
+				state.getClass().getSimpleName()));
+		this.state = state;
+	}
+
+	public boolean isOn() {
+		return isOn;
+	}
+
+	public void setOn(boolean isOn) {
+		this.isOn = isOn;
+	}
+
+	public boolean isPlaying() {
+		return isPlaying;
+	}
+
+	public void setPlaying(boolean isPlaying) {
+		this.isPlaying = isPlaying;
 	}
 }
