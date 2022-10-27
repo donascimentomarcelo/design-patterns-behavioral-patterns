@@ -83,6 +83,22 @@ sejam notificados e atualizados automaticamente.
 #
 ### State
 
+Permitir a um objeto alterar o seu comportamento quanto o seu estado interno mudar. O objeto irá aparentar mudar de classe.
+
+* Possuir interface `HPState`
+* Possuir duas classes concretas `PlayingState`, `OffState` e `OnState` que implementam `HPState`
+* Todas as classes concretas devem possuir um singleton
+     * `private static final HPState instance = new OffState();`
+     * `private static final HPState instance = new OnState();`
+     * `private static final HPState instance = new PlayingState();`
+* A classe `HeadPhone` deve possuir uma propriedade do tipo `HPState` chamada de state. A partir dela será possivel saber
+o atual estado de `HeadPhone`
+* Ao instanciar o objeto `HeadPhone`, sera possivel trocar os estados ao invocar os métodos `onLongClick` e `onClick`
+* Para trocar o estado, basta chamar a propriedade `state`, chamando um de seus metodos e passando a referência `this`
+    * `state.longClick(this);`
+    * `state.click(this);`
+
+![Alt text](imgs/state.jpg "State")
 #
 ### Strategy
 
