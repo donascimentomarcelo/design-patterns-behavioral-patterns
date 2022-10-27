@@ -68,6 +68,18 @@ elementos
 #
 ### Observer
 
+Definir uma dependência um-para-muitos entre objetos para que quando um objeto mudar de estado, todos os seus dependentes 
+sejam notificados e atualizados automaticamente.
+
+* Possuir interface chama `Observer` com o método `update`
+* Possuir classe abstrata `Subject` que possuem uma lista do tipo `Observer`, com os métodos `add` e `notifyObservers`
+    * `add` -> Adiciona um observer na lista de observers
+    * `notifyObservers` -> Varre a lista de observers e os notifica
+* O objeto `Doorman` deve estender de `Subject`
+* Os objetos `Friend` e `Wife` devem implementar `Observer`
+* Ao mudar o status `doorman.setStatus(true);`, todos os observeres serão notificados.
+
+![Alt text](imgs/observer.jpg "Observer")
 #
 ### State
 
