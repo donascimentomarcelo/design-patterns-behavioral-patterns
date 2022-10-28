@@ -65,6 +65,24 @@ elementos
 #
 ### Memento
 
+Sem violar o encapsulamento, capturar e externalizar o estado interno de um objeto para que o objeto possa ter esse 
+estado restaurado posteriormente.
+
+* Possuir classe `TextAreaWithMemory`, onde será responsável por criar um memento no método `save`, e recupera-lo no 
+método `restore`
+* A classe `TextAreaWithMemory` deve agir como originator
+* Possuir `Caretaker`, que deve guardar a lista de mementos.
+    * O método `add` deve adicionar um memento à lista de mementos
+    * O método `get` deve recuperar o memento da lista de mementos
+* Uso:
+    * Instanciar `TextAreaWithMemory originator = new TextAreaWithMemory(5, 10);`
+    * Instanciar `new Caretaker();`
+    * O originator deve ser passado para o `Caretaker()`
+    * De acordo com cada método chamado do `originator`, será adicionado um novo memento à lista de mementos, ou será
+    retornado para o item anterior.
+    * Ex: `caretaker.add(originator.save());` ou `originator.restore((TextAreaWithMemory.TextAreaMemento) caretaker.get(mementosList.getSelectedIndex()));`
+
+![Alt text](imgs/memento.jpg "Memento")    
 #
 ### Observer
 
